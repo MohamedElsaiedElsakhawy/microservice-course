@@ -42,6 +42,9 @@ var app = builder.Build();
 
 var env = app.Environment;
 
+
+
+
 if (env.IsDevelopment() || env.IsProduction())
 {
     app.UseDeveloperExceptionPage();
