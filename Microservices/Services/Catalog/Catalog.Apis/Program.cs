@@ -2,13 +2,21 @@
 using Catalog.Apis.Data;
 using Catalog.Apis.Repository;
 using Catalog.Apis.Shared;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
 // Add services to the container.
 
 builder.Services.AddControllers();
+
+builder.WebHost.UseKestrel(serverOptions =>
+{
+    serverOptions.ListenAnyIP(80);
+    serverOptions.ListenAnyIP(443, listenOptions => listenOptions.UseHttps());
+});
 
 
 builder.Services.AddSwaggerGen(c =>
@@ -34,7 +42,7 @@ var app = builder.Build();
 
 var env = app.Environment;
 
-if (env.IsDevelopment())
+if (env.IsDevelopment() || env.IsProduction())
 {
     app.UseDeveloperExceptionPage();
     app.UseSwagger();
