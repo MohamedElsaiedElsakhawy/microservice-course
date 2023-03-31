@@ -11,8 +11,8 @@ services:
       context: .
       dockerfile: Services/Catalog/Catalog.Apis/Dockerfile
 
-  mongoclient : 
-    image: mongoclient/mongoclient    
+  #mongoclient : 
+  #  image: mongoclient/mongoclient    
 
 
 volumes:

@@ -12,11 +12,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
-builder.WebHost.UseKestrel(serverOptions =>
-{
-    serverOptions.ListenAnyIP(80);
-    serverOptions.ListenAnyIP(443, listenOptions => listenOptions.UseHttps());
-});
+//builder.WebHost.UseKestrel(serverOptions =>
+//{
+//    serverOptions.ListenAnyIP(85);
+//    serverOptions.ListenAnyIP(443, listenOptions => listenOptions.UseHttps());
+//});
 
 
 builder.Services.AddSwaggerGen(c =>
